@@ -1,7 +1,20 @@
 doctype html
 html
-  head
-    title= "hello"
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= "Block Chain Visualization"
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css')
+
+    body
+        div(class="pusher")
+            div(class="ui container")
+                div(class="ui text container")
+                    | BLOCK CHAIN VISUALIZATION
+                div(class="ui fluid icon input")
+                    input(type="text", placeholder="Search for a block")
+                    button(class="ui teal right labeled icon button")
+                        | search
+                        i(class="search icon")
+                block content
