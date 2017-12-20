@@ -2,11 +2,11 @@
 
 Table of contents
 =================
-  * [Introduction](#Introduction)
-  * [Node.js Installation](#Node.js-installation)
-  * [Express Deployment](#Express)
-  * [Node.js project](#Node.js-project)
-  
+  * [Introduction](#introduction)
+  * [Node.js Installation](#node.js-installation)
+  * [Express Deployment](#express)
+  * [Node.js project](#node.js-project)
+  * [Front-End Render](#front-end-render)
 
 Introduction
 -----
@@ -88,7 +88,7 @@ curl http://localhost:3000/
 
 Node.js-project
 -----
-1. Install dependency
+1. Install dependency  
 
 Edit the package.json, add our needed packages e.g. {"mongodb": "2.2.33", "semantic-ui": "~2.2.13"} to the dependencies field.
 
@@ -114,8 +114,10 @@ Edit the package.json, add our needed packages e.g. {"mongodb": "2.2.33", "seman
 }
 ```
 
-2. Connect to the Mongodb
+2. Connect to the Mongodb  
+
 Go to your `routes\index.js` or you can generate a new route to handle the POST or GET request.
+
 ```javascript
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
@@ -127,20 +129,25 @@ MongoClient.connect(url, function (err, db) {
 });
 ```
 
-3. Handle your POST and GET request/response
+3. Handle your POST and GET request/response  
+
 Get your input POST 
+
 ```javascript
 router.post('/', function (req, res, next) {
     var input = req.body.input;
 });
 ```
+
 Respond your POST using json 
+
 ```javascript
 router.post('/', function (req, res, next) {
     res.send({'message': "Input invalid"});
 });
 ```
-4. Find documents using Mongodb
+4. Find documents using Mongodb  
+
 ```javascript
 var col = db.collection('YOUR COLLECTION');
 col.find({"YOUR QUERY KEY": "YOUR QUERY VALUE"}).limit(1).toArray(function (err, docs) {
@@ -153,6 +160,7 @@ col.find({"YOUR QUERY KEY": "YOUR QUERY VALUE"}).limit(1).toArray(function (err,
 });
 ```
 5. The entire code
+
 ```javascript
 var express = require('express');
 var router = express.Router();
@@ -210,5 +218,26 @@ router.post('/', function (req, res, next) {
     });
 });
 module.exports = router;
+```
+
+Front-end-render
+-----
+We use jQuery and Ajax to handle all the async actions, code as follow:
+```javascript
+$(document).ready(function () {
+    $('#button1').on('click', function () {
+        $.ajax({
+            url: '/blocks',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {input: $('#input1').val()},
+            success: function (data) {
+                var resultHTML = data.message;
+                var block_obj = jQuery.parseJSON(resultHTML)
+                // your code goes here...
+            }
+        });
+    });
+});
 ```
 
