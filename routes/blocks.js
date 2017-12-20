@@ -14,13 +14,15 @@ router.post('/', function (req, res, next) {
     var length_input = input.length;
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
-    var url = 'mongodb://45.63.13.24:27017/test';
+    // var url = 'mongodb://45.63.13.24:27017/test';
+    var url = 'mongodb://74.101.206.59:27017/blockdb';
     MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
         console.log("Connected correctly to server");
-        var col = db.collection('block');
+        var col = db.collection('blockchain');
         if (length_input === 64) {
             console.log(input);
+            // col.find({"blocks.hash": input}).limit(1).toArray(function (err, docs) {
             col.find({"blocks.hash": input}).limit(1).toArray(function (err, docs) {
                 if (err) {
                     console.log(err);
@@ -34,6 +36,7 @@ router.post('/', function (req, res, next) {
             });
         } else if (length_input < 10 && length_input > 0) {
             console.log(input);
+            // col.find({"blocks.height": Number(input)}).limit(1).toArray(function (err, docs) {
             col.find({"blocks.height": Number(input)}).limit(1).toArray(function (err, docs) {
                 if (err) {
                     console.log(err);
