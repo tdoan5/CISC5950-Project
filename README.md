@@ -3,9 +3,9 @@
 Table of contents
 =================
   * [Introduction](#introduction)
-  * [Node.js Installation](#node.js-installation)
+  * [Node.js Installation](#nodejs-installation)
   * [Express Deployment](#express)
-  * [Node.js project](#node.js-project)
+  * [Node.js project](#nodejs-project)
   * [Front-End Render](#front-end-render)
 
 Introduction
