@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
             col.find({"blocks.hash": input}).limit(1).toArray(function (err, docs) {
                 if (err) {
                     console.log(err);
-                    res.send({'message': "internal error"});
+                    res.send({'message': "Internal error"});
                 }else if (docs.length !== 1){
                     res.send({'message': "Input error, keyword not found"});
                 }else{
@@ -47,8 +47,8 @@ router.post('/', function (req, res, next) {
                 // res.render('index', {title: JSON.stringify(docs)});
             });
         } else {
-            console.log("input was wrong");
-            res.send({'message': "input was wrong"});
+            console.log("Input invalid");
+            res.send({'message': "Input invalid"});
         }
         db.close();
     });

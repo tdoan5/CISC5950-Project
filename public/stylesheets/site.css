@@ -11,7 +11,14 @@ body {
 #container1{
     padding-top: 10%;
 }
-
+#input_div{
+    padding-top: 15px;
+}
 #page2 {
     background-color: #58b792;
+}
+
+#table1 {
+    margin: auto;
+    max-width: 60%;
 }
