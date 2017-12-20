@@ -45,14 +45,14 @@ $(document).ready(function () {
                                 var str = "";
                                 var hash = tx_obj[key].hash;
                                 str += ("<tr><td class='error'>Transaction " + cnt + "</td>");
-                                str += "<td class='error'>" + hash + "</td>"
+                                str += "<td class='error'>" + hash + "</td>";
                                 str += "<tr><td>";
                                 for (var input in tx_obj[key].inputs){
                                     var inaddr = "";
-                                    try {
-                                        var inaddr = tx_obj[key].inputs[input].prev_out.addr;
-                                    } catch (e){
-                                        var inaddr = "Newly Generated Coins "
+                                    if(tx_obj[key].inputs[input].prev_out === undefined){
+                                        inaddr = "Newly Generated Coins "
+                                    }else {
+                                        inaddr = tx_obj[key].inputs[input].prev_out.addr;
                                     }
                                     str += (inaddr + "<i class='arrow right icon'></i><br>");
                                 }
@@ -63,7 +63,7 @@ $(document).ready(function () {
                                     str += "<tr>";
                                     var outaddr = tx_obj[key].out[out].addr;
                                     var value = tx_obj[key].out[out].value;
-                                    str += ("<td>" + outaddr + "</td><td>" + Number(value)/100000000 + " BTC" + "</td>")
+                                    str += ("<td>" + outaddr + "</td><td>" + Number(value)/100000000 + " BTC" + "</td>");
                                     str += "<tr>";
                                 }
 
@@ -85,15 +85,16 @@ $(document).ready(function () {
                     $('#link1').hide().fadeIn('slow');
                 } catch (e) {
                     if (e instanceof SyntaxError) {
-                        // window.alert(e);
                         if(data.message === "Input invalid"){
-                            $('#error_content1').html("Input invalid");
+                            window.alert(e);
+                            $('#error_content2').html("Input invalid");
                         }else {
-                            $('#error_content1').html("Keyword not found");
+                            $('#error_content2').html("Keyword not found");
                         }
                     } else {
-                        $('#error_content1').html(e);
+                        $('#error_content2').html(e);
                     }
+                    $('#container1').css("padding-top", "10%");
                     $('#modal1').modal('show');
                 }
             }
