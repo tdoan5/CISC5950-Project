@@ -11,6 +11,9 @@ router.get('/', function (req, res, next) {
         var col = db.collection('block');
         // Insert a single document
         col.find().limit(1).toArray(function (err, docs) {
+            if(err) {
+                console.log(err);
+            }
             res.render('index', {title: JSON.stringify(docs)});
             db.close();
         });

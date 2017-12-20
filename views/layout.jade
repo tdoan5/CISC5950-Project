@@ -1,20 +1,46 @@
 doctype html
 html
     head
-        title= "Block Chain Visualization"
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        title= "Block Chain Search"
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+
         script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+        script(src="/javascripts/home.js")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js')
+
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css')
+        link(rel='stylesheet', href='/stylesheets/site.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel="shortcut icon" href="/images/b.png")
 
     body
-        div(class="pusher")
-            div(class="ui container")
-                div(class="ui text container")
-                    | BLOCK CHAIN VISUALIZATION
-                div(class="ui fluid icon input")
-                    input(type="text", placeholder="Search for a block")
-                    button(class="ui teal right labeled icon button")
-                        | search
-                        i(class="search icon")
-                block content
+        div(class="ui basic modal")
+            div(class="ui center aligned container")
+                div(class="content")
+                    | The input value is invalid...
+                div(class="ui hidden divider")
+                div(class="actions")
+                    div(class="ui green cancel inverted button")
+                        | OK
+
+        div(id="container1" class="ui container")
+            div(class="ui one column doubling stackable center aligned grid container")
+                div(id="search1" class="column")
+                    img(id="bc_img" src="/images/blockchain-icon.png" class="image" )
+                    div(class="ui hidden divider")
+                    div(class="content")
+                        h2(class="ui center aligned image header")
+                            | Block Chain Search Engine
+                    div(class="ui hidden divider")
+                    div(id="input_div" class="ui big fluid action input")
+                        input(id="input1" type="text", placeholder="Search for a block...")
+                        button(id="button1" class="ui primary right submit button")
+                            i(class="search icon")
+
+                    div(class="ui hidden divider")
+            div(class="ui two column doubling stackable grid container")
+                div(id="link1", class="content")
+
+        //block content
