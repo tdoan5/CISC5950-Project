@@ -20,9 +20,9 @@ router.post('/', function (req, res, next) {
         assert.equal(null, err);
         console.log("Connected correctly to server");
         var col = db.collection('blockchain');
+        // var col = db.collection('block');
         if (length_input === 64) {
             console.log(input);
-            // col.find({"blocks.hash": input}).limit(1).toArray(function (err, docs) {
             col.find({"blocks.hash": input}).limit(1).toArray(function (err, docs) {
                 if (err) {
                     console.log(err);
@@ -36,7 +36,6 @@ router.post('/', function (req, res, next) {
             });
         } else if (length_input < 10 && length_input > 0) {
             console.log(input);
-            // col.find({"blocks.height": Number(input)}).limit(1).toArray(function (err, docs) {
             col.find({"blocks.height": Number(input)}).limit(1).toArray(function (err, docs) {
                 if (err) {
                     console.log(err);
