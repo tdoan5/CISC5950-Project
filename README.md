@@ -234,7 +234,13 @@ Jade is a template engine for better generate the HTML file.
 The basic sytax is simple but powerful
 
 ```jade
-
+ body
+    div(id="modal2" class="ui modal")
+        div(class="ui hidden divider")
+        div(class="ui centered container")
+            div(id="sc1" class="scrolling content")
+                div(class="ui hidden divider")
+        div(class="ui hidden divider")
 ```
 
 Front-end-render
