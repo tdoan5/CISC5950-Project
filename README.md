@@ -170,7 +170,7 @@ col.find({"YOUR QUERY KEY": "YOUR QUERY VALUE"}).limit(1).toArray(function (err,
     }
 });
 ```
-- The entire code
+- The entire POST processing code
 
 ```javascript
 var express = require('express');
@@ -232,7 +232,7 @@ module.exports = router;
 ```
 - Using template engine
 
-Jade is a template engine for better generate the HTML file.
+Jade is a template engine for better generating the HTML file.
 
 The basic sytax is simple but powerful
 
