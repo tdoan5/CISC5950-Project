@@ -10,13 +10,17 @@ Table of contents
 
 Introduction
 -----
+  
 - Server: Private Server 
 - OS: Ubuntu 16.10(LTS)
 - Framework: Node.js v4.2.6, Express 4.0, jQuery 3.2.1, Semantic-ui 2.2.13
 
+![](./doc/image/2.png)
+
 
 Node.js-installation
 -----
+
 #### For Ubuntu 16.10
 1. Update your local package
 ```sh
