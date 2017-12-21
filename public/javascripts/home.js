@@ -44,10 +44,10 @@ $(document).ready(function () {
                     var group = 0;
                     for (var key in tx_obj){
                         cnt += 1;
-                        if(cnt % 21 === 0 && cnt < tx_obj.length){
-                            $('#table2').append("<tr><td><button id='showall' class='ui button'>show all</button></td><td></td></tr>");
-                            break;
-                        }
+                        // if(cnt % 21 === 0 && cnt < tx_obj.length){
+                        //     $('#table2').append("<tr><td><button id='showall' class='ui button'>show all</button></td><td></td></tr>");
+                        //     break;
+                        // }
                         if (tx_obj.hasOwnProperty(key)) {
                             var str = "";
                             var hash = tx_obj[key].hash;
