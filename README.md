@@ -37,7 +37,9 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 #### For Windows
 Download the latest Node.js installer from [Node.js Download](https://nodejs.org/en/download/) page.  
-![](./doc/image/1.png)
+
+![](./doc/image/1.png)  
+
 Follow the install instruction. 
 
 Express
@@ -51,6 +53,8 @@ npm install express
 npm install express-generator -g
 ```
 3. Generate you projet
+
+We are using pug (used to be jade) as template engine
 ```sh
 express --view=pug project
 ```
@@ -218,6 +222,15 @@ router.post('/', function (req, res, next) {
     });
 });
 module.exports = router;
+```
+6. Using template engine
+
+Jade is a template engine for better generate the HTML file.
+
+The basic sytax is simple but powerful
+
+```jade
+
 ```
 
 Front-end-render
