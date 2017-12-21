@@ -25,19 +25,19 @@ Node.js-installation
 -----
 
 #### For Ubuntu 16.10
-1. Update your local package
+- Update your local package
 ```sh
 sudo apt-get update
 ```
-2. Install Node.js
+- Install Node.js
 ```sh
 sudo apt-get install nodejs
 ```
-3. Install npm
+- Install npm
 ```sh
 sudo apt-get install npm
 ```
-4. Add symbolic link to nodejs
+- Add symbolic link to nodejs
 ```sh
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
@@ -51,21 +51,21 @@ Follow the install instruction.
 
 Express
 -----
-1. Install Express
+- Install Express
 ```sh
 npm install express
 ```
-2. Install express-generator
+- Install express-generator
 ```sh
 npm install express-generator -g
 ```
-3. Generate you projet
+- Generate you projet
 
 We are using pug (used to be jade) as template engine
 ```sh
 express --view=pug project
 ```
-4. View your project
+- View your project
 Your project file structure would be:
 ```
 ├── app.js
@@ -87,7 +87,7 @@ Your project file structure would be:
 
 7 directories, 9 files
 ```
-5. Install all dependency and check
+- Install all dependency and check
 ```sh
 cd project && npm install
 DEBUG=project:* npm start
@@ -95,11 +95,11 @@ curl http://localhost:3000/
 ```
 > If you don't have curl, try `apt-get install curl`
 
-6. Now start your project!
+-  Now start your project!
 
 Node.js-project
 -----
-1. Install dependency  
+- Install dependency  
 
 Edit the package.json, add our needed packages e.g. {"mongodb": "2.2.33", "semantic-ui": "~2.2.13"} to the dependencies field.
 
@@ -125,7 +125,7 @@ Edit the package.json, add our needed packages e.g. {"mongodb": "2.2.33", "seman
 }
 ```
 
-2. Connect to the Mongodb  
+- Connect to the Mongodb  
 
 Go to your `routes\index.js` or you can generate a new route to handle the POST or GET request.
 
@@ -140,7 +140,7 @@ MongoClient.connect(url, function (err, db) {
 });
 ```
 
-3. Handle your POST and GET request/response  
+- Handle your POST and GET request/response  
 
 Get your input POST 
 
@@ -157,7 +157,7 @@ router.post('/', function (req, res, next) {
     res.send({'message': "Input invalid"});
 });
 ```
-4. Find documents using Mongodb  
+- Find documents using Mongodb  
 
 ```javascript
 var col = db.collection('YOUR COLLECTION');
@@ -170,7 +170,7 @@ col.find({"YOUR QUERY KEY": "YOUR QUERY VALUE"}).limit(1).toArray(function (err,
     }
 });
 ```
-5. The entire code
+- The entire code
 
 ```javascript
 var express = require('express');
@@ -230,7 +230,7 @@ router.post('/', function (req, res, next) {
 });
 module.exports = router;
 ```
-6. Using template engine
+- Using template engine
 
 Jade is a template engine for better generate the HTML file.
 
